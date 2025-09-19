@@ -161,8 +161,8 @@
 								// fallback copy ke clipboard
 								if (!results || !results[0].result) {
 									navigator.clipboard.writeText(otp).then(() => {
-										codeEl.style.background = "#c8f7c5";
-										setTimeout(() => (codeEl.style.background = ""), 400);
+										codeEl.style.color = "#c8f7c5";
+										setTimeout(() => (codeEl.style.color = ""), 400);
 									});
 								}
 							}

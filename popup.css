@@ -162,15 +162,15 @@ header {
   font-weight: bold;
   color: #4a90e2;
   cursor: pointer;
-  text-align: center;
+  text-align: right;
   user-select: none;
-  margin: 0 8px;
+  margin: 0 0 0 8px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .account .time {
-  width: 40px;
+  width: 30px;
   text-align: right;
   font-size: 12px;
   color: #777;
