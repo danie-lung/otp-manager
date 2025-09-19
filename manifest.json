@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "2FA Manager",
+  "name": "OTP Manager",
   "version": "1.0",
   "description": "Hasilkan kode TOTP secara langsung.",
   "permissions": [
@@ -17,7 +17,7 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "2FA Manager",
+    "default_title": "OTP Manager",
     "default_icon": {
       "16": "icons/icon64.png",
       "32": "icons/icon64.png",
