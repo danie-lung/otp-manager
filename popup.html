@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>2FA Manager</title>
+		<link rel="stylesheet" href="popup.css">
+	</head>
+	<body>
+		<div class="header-links">2FA Manager - @danie_lung: 
+			<a href="https://youtube.com/channel/UCFXa610yngQ4z5WWWioSkSA" target="_blank">Tutorial</a> ✦ 
+			<a href="https://github.com/danie-lung/otp-manager" target="_blank">Github</a>
+		</div>
+		<div class="toolbar">
+			<button id="uploadQR">Upload QR</button>
+			<input type="file" id="fileInput" accept="image/*" style="display:none">
+			<button id="scanTab">Scan active tab</button>
+			<button id="addManual">Add manual</button>
+			<button id="exportBtn">Export</button>
+			<input type="file" id="importFile" accept="application/json" style="display:none">
+			<button id="importBtn">Import</button>
+			<button id="clearBtn">Clear All</button>
+		</div>
+		<!-- Tabs -->
+		<div id="tabs"></div>
+		<!-- Account list -->
+		<div id="list"></div>
+		<template id="accountTpl">
+			<div class="account">
+				<div class="info">
+					<span class="label"></span>
+					<small class="issuer"></small>
+				</div>
+				<span class="code"></span>
+				<span class="time"></span>
+				<button class="edit">✎</button>
+				<button class="del">✕</button>
+			</div>
+		</template>
+		<script src="totp.js"></script>
+		<script src="jsqr.min.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
