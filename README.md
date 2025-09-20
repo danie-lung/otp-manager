@@ -15,4 +15,4 @@ Jika akan menggunakan fitur pengguna khusus tersebut, kita harus setting issuer 
 * SIASN
 * InfoGTK
 
-Pastikan besar kecilnya sama
+Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
