@@ -1,4 +1,4 @@
-# OTP Manager
+# OTP Manager Ope.
 
 Ekstensi Browser untuk menghasilkan kode OTP secara langsung
 
