@@ -40,7 +40,7 @@ Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
 
 ### ➕ Multiple Metode Import
 | Metode | Deskripsi |
-|--------|-------------|----------|
+|--------|-------------|
 | **📷 Upload QR Code** | Unggah gambar QR code dari perangkat |
 | **🌐 Scan Tab Aktif** | Capture dan scan QR code dari halaman web |
 | **⌨️ Input Manual** | Tambah akun manual dengan secret key |
@@ -83,3 +83,4 @@ Selalu simpan master password Anda di password manager yang aman atau tulis di t
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
