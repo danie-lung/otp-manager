@@ -1,43 +1,149 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>OTP Manager</title>
-		<link rel="stylesheet" href="popup.css">
-	</head>
-	<body>
-		<div class="header-links">OTP Manager - @danie_lung: 
-			<a href="https://youtube.com/channel/UCFXa610yngQ4z5WWWioSkSA" target="_blank">Tutorial</a> ✦ 
-			<a href="https://github.com/danie-lung/otp-manager" target="_blank">Github</a>
-		</div>
-		<div class="toolbar">
-			<button id="uploadQR">Upload QR</button>
-			<input type="file" id="fileInput" accept="image/*" style="display:none">
-			<button id="scanTab">Scan active tab</button>
-			<button id="addManual">Add manual</button>
-			<button id="exportBtn">Export</button>
-			<input type="file" id="importFile" accept="application/json" style="display:none">
-			<button id="importBtn">Import</button>
-			<button id="clearBtn">Clear All</button>
-		</div>
-		<!-- Tabs -->
-		<div id="tabs"></div>
-		<!-- Account list -->
-		<div id="list"></div>
-		<template id="accountTpl">
-			<div class="account">
-				<div class="info">
-					<span class="label"></span>
-					<small class="issuer"></small>
-				</div>
-				<span class="code"></span>
-				<span class="time"></span>
-				<button class="edit">✎</button>
-				<button class="del">✕</button>
-			</div>
-		</template>
-		<script src="totp.js"></script>
-		<script src="jsqr.min.js"></script>
-		<script src="popup.js"></script>
-	</body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>OTP Manager Ope.</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="header-main">
+    <div class="header-title">OTP Manager Ope.</div>
+    <div class="header-icons">
+      <button class="header-icon" id="menuBtn">☰</button>
+      <button class="header-icon" id="settingsBtn">⚙️</button>
+    </div>
+  </div>
+
+  <div class="header-links">
+    @danie_lung:
+    <a href="https://youtube.com/channel/UCFXa610yngQ4z5WWWioSkSA" target="_blank">Tutorial</a>
+    ✦
+    <a href="https://github.com/danie-lung/otp-manager" target="_blank">Github</a>
+  </div>
+
+  <div id="loading" style="display: none; text-align: center; margin: 10px 0">
+    Loading...
+  </div>
+
+  <!-- Search dan tabs -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cari akun...">
+  </div>
+  <div id="tabs"></div>
+
+  <!-- Account list -->
+  <div id="list"></div>
+
+  <template id="accountTpl">
+    <div class="account">
+      <div class="info">
+        <span class="label"></span>
+        <small class="issuer"></small>
+      </div>
+      <span class="code"></span>
+      <span class="time"></span>
+      <button class="qr">📱</button>
+      <button class="edit">✎</button>
+      <button class="del">✕</button>
+    </div>
+  </template>
+
+  <!-- Modal Tools/Menu -->
+  <div id="toolsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3> </h3>
+      <div class="toolbar-section">
+        <h4>Tambahkan akun</h4>
+        <div class="toolbar-modal">
+          <button id="modalUploadQR">Upload QR</button>
+          <button id="modalScanTab">Scan active tab</button>
+          <button id="modalAddManual">Add manual</button>
+        </div>
+      </div>
+
+      <div class="toolbar-section">
+        <h4>Backup & Restore</h4>
+        <div class="toolbar-modal">
+          <button id="modalExportBtn">Export</button>
+          <button id="modalExportUnencryptedBtn" style="display: none;">Export (Unencrypted)</button>
+          <button id="modalImportBtn">Import</button>
+          <button id="modalClearBtn">Clear All</button>
+        </div>
+      </div>
+
+      <input type="file" id="modalFileInput" accept="image/*" style="display: none" />
+      <input type="file" id="modalImportFile" accept="application/json" style="display: none" />
+    </div>
+  </div>
+
+  <!-- Password Modal -->
+  <div id="passwordModal" class="modal">
+    <div class="modal-content">
+      <h3>Masukkan kata sandi</h3>
+      <p>Akun Anda dienkripsi. Harap masukkan kata sandi Anda untuk mengaksesnya.</p>
+      <input type="password" id="passwordInput" placeholder="Masukkan password"
+        style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px;">
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button id="submitPassword">Unlock</button>
+      </div>
+      <div id="passwordError" style="color: red; font-size: 12px; margin-top: 5px; display: none;">Kata sandi tidak valid. Silakan coba lagi.</div>
+    </div>
+  </div>
+
+  <!-- Password Modal Impor -->
+  <div id="importPasswordModal" class="modal">
+    <div class="modal-content">
+      <h3>Password untuk File Impor</h3>
+      <p>File yang akan diimpor berisi akun terenkripsi. Masukkan password untuk membukanya.</p>
+      <input type="password" id="importPasswordInput" placeholder="Masukkan password"
+        style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-bottom: 10px;">
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button id="cancelImportPassword">Batal</button>
+        <button id="submitImportPassword">Buka File</button>
+      </div>
+      <div id="importPasswordError" style="color: red; font-size: 12px; margin-top: 5px; display: none;">Password tidak valid. Silakan coba lagi.</div>
+    </div>
+  </div>
+
+  <!-- Modal Settings -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Settings</h3>
+
+      <!-- Tombol sort -->
+      <button id="btnSortAccounts" style="margin-bottom: 15px; padding: 8px 12px; cursor: pointer;">
+        Urutkan akun (Label → Issuer)
+      </button>
+
+      <hr style="margin: 15px 0; border-color: #eee;">
+      <h4>Pengaturan Enkripsi</h4>
+      <label>
+        <input type="checkbox" id="enableEncryption" />Aktifkan enkripsi
+      </label>
+      <div id="encryptionPasswordSection" style="display: none; margin-top: 10px;">
+        <label for="encryptionPassword">Kata sandi enkripsi (diperlukan untuk mengaktifkan):</label>
+        <input type="password" id="encryptionPassword" placeholder="Masukkan password"
+          style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-top: 5px;">
+        <small style="color: #777; display: block; margin-top: 5px;">Kata sandi ini tidak disimpan. Anda akan diminta memasukkannya saat mengakses data terenkripsi.</small>
+      </div>
+      <!-- Peringatan penting -->
+      <p style="color: red; font-weight: bold; margin-top: 15px;">
+        ⚠️ <em>Jika Anda lupa kata sandi enkripsi, secret akun Anda <strong>tidak dapat dipulihkan</strong>.</em>
+      </p>
+      <button style="margin-top: 15px;" id="saveSettings">Save Settings</button>
+    </div>
+  </div>
+
+  <script src="totp.js"></script>
+  <script src="jsqr.min.js"></script>
+  <script src="qrcode.min.js"></script>
+  <script src="utils.js"></script>
+  <script src="storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+
 </html>
