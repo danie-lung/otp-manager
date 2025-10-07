@@ -45,11 +45,10 @@ Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
 | **🌐 Scan Tab Aktif** | Capture dan scan QR code dari halaman web |
 | **⌨️ Input Manual** | Tambah akun manual dengan secret key |
 
-### 🛡️ Keamanan Tingkat Lanjut
+### 🛡️ Keamanan
 - **Enkripsi Military-grade** - Algoritma AES-256-GCM
 - **Perlindungan Password** - Master password diperlukan untuk data terenkripsi
 - **Penyimpanan Lokal** - Semua data tetap di perangkat Anda
-- **Peringatan Keamanan** - Peringatan jelas tentang pemulihan password
 
 ###  💾 Backup & Pemulihan
 - **Export Terenkripsi** - Backup aman dengan password Anda
@@ -83,4 +82,5 @@ Selalu simpan master password Anda di password manager yang aman atau tulis di t
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
 
