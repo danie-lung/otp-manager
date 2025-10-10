@@ -31,6 +31,7 @@ Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
 - **🏷️ Pengelompokan Pintar** - Akun dikelompokkan otomatis berdasarkan penyedia layanan
 - **🔍 Pencarian Instan** - Cari akun dengan cepat berdasarkan nama atau issuer
 - **📊 Penyortiran** - Urutkan akun berdasarkan Label → Issuer untuk manajemen yang lebih baik
+- **📱 Download QR**
 
 ### Kompatibilitas Browser
 - ✅ Google Chrome 88+
@@ -57,7 +58,7 @@ Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
 - **Validasi Password** - Import aman dengan verifikasi password
 
 ###  🎯 Integrasi Pintar
-- **Auto-fill Satu Klik **- Input langsung ke field OTP
+- **Auto-fill Satu Klik** - Input langsung ke field OTP
 - **Fallback Clipboard** - Salin otomatis ke clipboard
 - **Kompatibel Cross-browser** - Berfungsi di browser berbasis Chromium
 
@@ -82,5 +83,6 @@ Selalu simpan master password Anda di password manager yang aman atau tulis di t
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
 
 
