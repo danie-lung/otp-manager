@@ -57,32 +57,21 @@ Pastikan besar kecilnya sama, selain dari itu menggunakan [ctrl] + [v]
 - **Import** - Deteksi otomatis backup terenkripsi
 - **Validasi Password** - Import aman dengan verifikasi password
 
-###  🎯 Integrasi Pintar
+###  🎯 Integrasi
 - **Auto-fill Satu Klik** - Input langsung ke field OTP
 - **Fallback Clipboard** - Salin otomatis ke clipboard
 - **Kompatibel Cross-browser** - Berfungsi di browser berbasis Chromium
 
-### 🚀 Instalasi
-```
-# Clone repository
-git clone https://github.com/danie-lung/otp-manager.git
-
-# Load ekstensi unpacked
-1. Buka Chrome → Extensions → Developer mode
-2. Klik "Load unpacked"
-3. Pilih direktori ekstensi
-```
 ### ⚠️ Peringatan Keamanan Penting
 Jika Anda mengaktifkan enkripsi dan lupa password, secret OTP Anda TIDAK DAPAT DIPULIHKAN.
 Selalu simpan master password Anda di password manager yang aman atau tulis di tempat yang aman.
 
 ## Disclaimer
-
-* Ekstensi ini tidak memiliki enkripsi atau fitur keamanan tambahan.
 * Semua data OTP hanya disimpan di penyimpanan lokal browser (chrome.storage.local).
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
 
 
 
