@@ -6,6 +6,9 @@
 
 </div>
 
+## Update v2.1:
+Memperbaiki kode untuk menghindari window browser minimize setelah edit dan tambah akun manual
+
 ## 📖 Gambaran Umum
 
 OTP Manager Ope. adalah ekstensi browser untuk mengelola semua kode Two-Factor Authentication (2FA) Anda dalam satu tempat. Dengan enkripsi dan antarmuka yang intuitif, ini adalah solusi untuk meningkatkan kenyamanan.
@@ -71,6 +74,7 @@ Selalu simpan master password Anda di password manager yang aman atau tulis di t
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
 
 
 
