@@ -316,6 +316,79 @@ body {
   width: 320px;
 }
 
+/* Overlay menutupi seluruh popup */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Isi modal */
+.modal-overlay .modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  width: 90%;
+  max-width: 340px;
+  box-sizing: border-box;
+}
+
+/* Teks dan input */
+.modal-overlay .modal-content p {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.modal-overlay input[type="text"],
+.modal-overlay input[type="password"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Tombol sejajar kiri–kanan */
+.modal-overlay .button-row {
+  display: flex;
+  justify-content: space-between; /* kiri dan kanan */
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Style tombol */
+.modal-overlay button {
+  flex: 1;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.modal-overlay #cancelBtn {
+  background-color: #e0e0e0;
+  color: #222;
+  margin-right: 8px;
+}
+
+.modal-overlay #cancelBtn:hover {
+  background-color: #ccc;
+}
+
 .toolbar-modal {
   display: grid;
   grid-template-columns: 1fr 1fr;

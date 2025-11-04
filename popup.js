@@ -568,9 +568,9 @@
       alert("Tidak dapat mengedit akun terenkripsi. Harap nonaktifkan enkripsi atau dekripsi akun terlebih dahulu.");
       return;
     }
-    const newLabel = prompt('Edit Label:', account.label);
+    const newLabel = await showPrompt('Edit Label:', account.label);
     if (newLabel === null) return;
-    const newIssuer = prompt('Edit Issuer:', account.issuer || '');
+    const newIssuer = await showPrompt('Edit Issuer:', account.issuer || '');
     if (newIssuer === null) return;
 
     account.label = newLabel.trim();
@@ -715,11 +715,12 @@
         return;
       }
     }
-    const label = prompt('Label:');
+    const label = await showPrompt('Label:', '');
     if (!label) return;
-    const secret = prompt('Secret:');
+    const secret = await showPrompt('Secret:', '');
     if (!secret) return;
-    const issuer = prompt('Issuer (optional):') || '';
+    const issuer = await showPrompt('Issuer:', '');
+	if (!issuer) return;
 
     const newAccount = {
       label: label.trim(),
@@ -743,6 +744,50 @@
     render();
     alert('Berhasil ditambahkan');
   }
+  
+  function showPrompt(message, defaultValue = "") {
+	  return new Promise((resolve) => {
+		const modal = document.createElement("div");
+		modal.className = "modal-overlay";
+		modal.innerHTML = `
+		  <div class="modal-content">
+			<p>${message}</p>
+			<input type="text" id="promptInput" value="${defaultValue}" />
+			<div class="button-row">
+			  <button id="cancelBtn">Batal</button>
+			  <button id="okBtn">OK</button>
+			</div>
+		  </div>`;
+		document.body.appendChild(modal);
+		const input = modal.querySelector("#promptInput");
+		input.focus();
+
+		modal.querySelector("#okBtn").onclick = () => {
+		  const val = input.value;
+		  modal.remove();
+		  resolve(val);
+		};
+		modal.querySelector("#cancelBtn").onclick = () => {
+		  modal.remove();
+		  resolve(null);
+		};
+	  });
+	}
+	
+	function showAlert(message) {
+	  const modal = document.createElement("div");
+	  modal.className = "modal-overlay";
+	  modal.innerHTML = `
+		<div class="modal-content">
+		  <p>${message}</p>
+		  <div style="text-align:right">
+			<button id="okBtn">OK</button>
+		  </div>
+		</div>`;
+	  document.body.appendChild(modal);
+	  modal.querySelector("#okBtn").onclick = () => modal.remove();
+	}
+
 
   // Initialize
   async function init() {
