@@ -2,7 +2,7 @@
 <div align="center">
   
 ![OTP Manager Ope](https://img.shields.io/badge/OTP-Manager-blue?style=for-the-badge&logo=google-authenticator)
-![Version](https://img.shields.io/badge/Version-2.0-red?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-2.1-red?style=for-the-badge)
 
 </div>
 
@@ -71,6 +71,7 @@ Selalu simpan master password Anda di password manager yang aman atau tulis di t
 * Jika ekstensi dihapus atau data browser ter-reset, data OTP akan hilang kecuali sudah diekspor manual.
 * Penulis ekstensi tidak bertanggung jawab atas kerugian, kebocoran data, atau penyalahgunaan yang timbul dari penggunaan ekstensi ini.
 * Dengan menggunakan ekstensi ini, pengguna menyatakan menanggung segala risiko sendiri.
+
 
 
 
